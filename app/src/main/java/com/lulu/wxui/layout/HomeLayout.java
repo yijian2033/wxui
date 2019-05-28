@@ -1,10 +1,12 @@
-package com.lulu.wxui.widget;
+package com.lulu.wxui.layout;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
+import com.lulu.wxui.util.DensityUtil;
 
 /**
  * create by zyj
@@ -39,7 +41,10 @@ public class HomeLayout extends RelativeLayout {
 
     private void init() {
         recyclerView = new RecyclerView(mContext);
-        recyclerView.setLayoutManager(new GridLayoutManager(mContext,3));
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = DensityUtil.dip2px(getContext(),10);
+        params.rightMargin = DensityUtil.dip2px(getContext(),10);
+        recyclerView.setLayoutParams(params);
         addView(recyclerView);
     }
 
